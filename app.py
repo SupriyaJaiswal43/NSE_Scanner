@@ -22,7 +22,10 @@ from scanner import run_scanner, DEFAULT_FILTERS
 from alerts import trigger_alerts
 
 IST = pytz.timezone("Asia/Kolkata")
-HISTORY_FILE = "signals_history.csv"
+
+# Streamlit Cloud pe /tmp use karo (writable directory)
+import tempfile
+HISTORY_FILE = os.path.join(tempfile.gettempdir(), "nse_signals_history.csv")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE CONFIG
